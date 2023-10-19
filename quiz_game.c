@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define ANSNUM 4
-#define MAXQULEN 200
-#define MAXANLEN 100
-#define MAXNMLEN 100
-#define NUMQST 10
+// define constant
+#define ANSNUM 4        // number of answer per question
+#define MAXQULEN 200    // max length of question
+#define MAXANLEN 100    // max length of answer
+#define MAXNMLEN 100    // max length of name
+#define NUMQST 10       // number of question per player
 
+// define data type for player and quiz
 typedef struct player
 {
     char name[MAXNMLEN];
@@ -21,11 +23,14 @@ typedef struct quiz
     int correct_answer;
 } quiz;
 
+// declare function prototype
 void print_menu();
 void play();
 void show_player_list();
 void update_question_bank();
+void load_question_bank();
 
+// start of the main function
 int main(void)
 {
     int choice;
@@ -75,71 +80,7 @@ void print_menu()
 
 void play()
 {   
-    quiz *quiz_buffer; // buffer pointer for one quiz
-    player *user_buffer; // buffer pointer for one user
-    int qst_count, score; // variable for question count and score record
-
-    // open quiz file
-    FILE *quiz_lst = fopen("quiz.txt", "r");
-
-    // check if opened correctly
-    if (quiz_lst == NULL)
-    {
-        printf("Cannot open quiz file.\n");
-    }
-
-    // open result file
-    FILE *result_lst = fopen("result.txt", "r");
-
-    // check if opened correctly
-    if (result_lst == NULL)
-    {
-        printf("Cannot open result file.\n");
-    }
-
-    // let the user enter their name
-    printf("Please enter your name: ");
-    scanf("%[^\n]s", user_buffer->name);
-
-    // set random seed
-    srand(time(NULL));
-
-    // initialize question count to zero
-    qst_count = 0;
-
-    // loop while not reached maximum number or end of file
-    while (fread(quiz_buffer, sizeof(quiz), 1, quiz_lst) && qst_count <= NUMQST)
-    {   
-        // create variable to record choice and randomization
-        int choice, r;
-
-        // randomize
-        r = rand();
-        if (r % 2 == 0)
-        {
-            // print question
-            printf("Question %d. %s\n", qst_count + 1, quiz_buffer->question);
-
-            // print possible answer
-            for (int i = 0; i < ANSNUM; i++)
-            {
-                printf("%d. %s\n", i + 1, quiz_buffer->answer[i]);
-            }
-
-            // let user make their choice
-            printf("Your choice (1, 2, 3, or 4): ");
-            scanf("%d", &choice);
-
-            // check correctness
-            if (choice == quiz_buffer->correct_answer)
-            {
-                score ++;
-            }
-
-            // increase question count
-            qst_count++;
-        }
-    }
+    printf("Write your code here to implement the play() function.\n");
 }
 
 void show_player_list()
@@ -149,5 +90,10 @@ void show_player_list()
 
 void update_question_bank()
 {
+    printf("Write your code here to implement the update_question_bank() function.\n");
+}
 
+void load_question_bank()
+{
+    printf("Write your code here to implement the load_question_bank() function.\n");
 }
