@@ -53,7 +53,9 @@ int main(void)
         scanf("%d%*c", &choice);
 
         switch(choice)
-        {
+        {   
+            case 0:
+                break;
             case 1:
                 play();
                 break;
@@ -67,8 +69,12 @@ int main(void)
                 printf("Your choice is not available. Please choose 0, 1, 2, or 3.\n");
         }
 
-        printf("\nPress any key to return to the menu.");
-        scanf("%*c");
+        if (choice != 0)
+        {
+            printf("\nPress any key to return to the menu.");
+            scanf("%*c");
+        }
+        
     }
     while(choice);
 
@@ -153,7 +159,7 @@ quiz *load_question_bank(FILE *ptr, int quiz_count)
     return quiz_list;
 }
 
-quiz *load_player_record(FILE *ptr, int player_count)
+player *load_player_record(FILE *ptr, int player_count)
 {
     player *player_list;
 
