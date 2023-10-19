@@ -66,8 +66,8 @@ int main(void)
 
 void print_menu()
 {
-    // system("clear"); // for macos, linux
-    system("cls"); // for windows
+    system("clear"); // for macos, linux
+    // system("cls"); // for windows
     printf(" ================================== \n");
     printf("|             QUIZ GAME            |\n");
     printf("|             ---------            |\n");
