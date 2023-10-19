@@ -24,11 +24,22 @@ typedef struct quiz
 } quiz;
 
 // declare function prototype
+// primary functions
 void print_menu();
 void play();
 void show_player_list();
 void update_question_bank();
-void load_question_bank();
+
+// counting functions
+int number_of_player(FILE *ptr);
+int number_of_question(FILE *ptr);
+
+// load file content functions
+player *load_player_record(FILE *ptr, int player_count);
+quiz *load_question_bank(FILE *ptr, int quiz_count);
+
+// array shuffle
+void array_shuffle(quiz *quiz_list);
 
 // start of the main function
 int main(void)
@@ -80,7 +91,21 @@ void print_menu()
 
 void play()
 {   
-    printf("Write your code here to implement the play() function.\n");
+    int quiz_count;
+    quiz *quiz_list;
+
+    FILE *inptr = fopen("quiz.txt", "r");
+
+    if (inptr == NULL)
+    {
+        printf("Cannot open the quiz file");
+    }
+
+    quiz_count = number_of_question(inptr);
+    load_question_bank(inptr, quiz_count);
+
+    free(quiz_list);
+    fclose(inptr);
 }
 
 void show_player_list()
@@ -93,7 +118,55 @@ void update_question_bank()
     printf("Write your code here to implement the update_question_bank() function.\n");
 }
 
-void load_question_bank()
+int number_of_question(FILE *ptr)
 {
-    printf("Write your code here to implement the load_question_bank() function.\n");
+    int quiz_count;
+
+    fseek(ptr, 0, SEEK_END);
+    quiz_count = ftell(ptr) / sizeof(quiz);
+    fseek(ptr, 0, SEEK_SET);
+
+    return quiz_count;
+}
+
+int number_of_player(FILE *ptr)
+{
+    int player_count;
+
+    fseek(ptr, 0, SEEK_END);
+    player_count = ftell(ptr) / sizeof(player);
+    fseek(ptr, 0, SEEK_SET);
+
+    return player_count;
+}
+
+quiz *load_question_bank(FILE *ptr, int quiz_count)
+{
+    quiz *quiz_list;
+
+    // allocate memory
+    quiz_list = (quiz *) calloc(quiz_count, sizeof(quiz));
+
+    // read quiz from file to array
+    fread(quiz_list, sizeof(quiz), quiz_count, ptr);
+
+    return quiz_list;
+}
+
+quiz *load_player_record(FILE *ptr, int player_count)
+{
+    player *player_list;
+
+    // allocate memory
+    player_list = (player *) calloc(player_count, sizeof(player));
+
+    // read quiz from file to array
+    fread(player_list, sizeof(player), player_count, ptr);
+
+    return player_list;
+}
+
+void array_shuffle(quiz *quiz_list)
+{
+    
 }
