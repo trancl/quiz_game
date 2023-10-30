@@ -48,12 +48,6 @@ int change_question(quiz **quiz_list, int quiz_count);
 // start of the main function
 int main ()
 {
-    // declare main variable
-    quiz *q_list = NULL;
-    player *p_list = NULL;
-    int q_count = 0;
-    int p_count = 0;
-
     int choice;
 
     do
