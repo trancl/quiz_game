@@ -470,7 +470,7 @@ int change_question(quiz **quiz_list, int quiz_count)
         printf("--------------------------------------------\n");
 
         // let the user choose what to do
-        printf("Enter your choice:");
+        printf("Enter your choice: ");
         scanf("%d", &option);
         while(getchar() != '\n');
 
