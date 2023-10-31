@@ -130,7 +130,6 @@ void play()
     for (int i = 0; i < QSTNUM && i < q_count; i++)
     {
         system("clear");
-        
         char p_choice;
 
         printf("%d. ", i + 1);
