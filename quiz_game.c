@@ -90,7 +90,7 @@ int main ()
 
 void print_menu()
 {
-    // system("clear"); // for macos, linux
+    system("clear"); // for macos, linux
     // system("cls"); // for windows
     printf(" ================================== \n");
     printf("|             QUIZ GAME            |\n");
@@ -129,6 +129,8 @@ void play()
     // print question and get answer
     for (int i = 0; i < QSTNUM && i < q_count; i++)
     {
+        system("clear");
+        
         char p_choice;
 
         printf("%d. ", i + 1);
@@ -168,6 +170,8 @@ void play()
 
 void show_player_list()
 {
+    system("clear");
+
     player *p_list = NULL;
     int p_count;
 
@@ -197,6 +201,8 @@ void show_player_list()
 
 void update_question_bank()
 {
+    system("clear");
+
     quiz *q_list = NULL;
     int q_count;
 
@@ -208,8 +214,7 @@ void update_question_bank()
     int choice;
 
     do
-    {
-        // system("cls");
+    {   
         printf(" ================================== \n");
         printf("|          UPDATE QUESTION         |\n");
         printf("|             ---------            |\n");
@@ -452,6 +457,7 @@ int change_question(quiz **quiz_list, int quiz_count)
     do
     {
         // print the menu
+        system("clear");
         // system("cls");
         printf("What do you want to do?\n");
         printf("1. Change question\n");
