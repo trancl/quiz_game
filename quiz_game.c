@@ -214,6 +214,8 @@ void update_question_bank()
 
     do
     {   
+        // system("cls");
+        system("clear");
         printf(" ================================== \n");
         printf("|          UPDATE QUESTION         |\n");
         printf("|             ---------            |\n");
@@ -223,7 +225,8 @@ void update_question_bank()
         printf(" ================================== \n\n");
 
         printf("Enter your choice: ");
-        scanf("%d%*c", &choice);
+        scanf("%d", &choice);
+        while(getchar() != '\n');
 
         switch (choice)
         {
@@ -440,14 +443,14 @@ int change_question(quiz **quiz_list, int quiz_count)
         printf("--------------------------------------------\n");
     }
 
-    int choice;
+    int choice = 0;
 
     do
     {
         printf("Please choose the question you want to change: ");
         scanf("%d", &choice);
         while(getchar() != '\n');
-    } while (choice > quiz_count || choice < 0);
+    } while (choice > quiz_count || choice < 1);
 
     int option;
 
@@ -468,7 +471,8 @@ int change_question(quiz **quiz_list, int quiz_count)
 
         // let the user choose what to do
         printf("Enter your choice:");
-        scanf("%d%*c", &option);
+        scanf("%d", &option);
+        while(getchar() != '\n');
 
         switch (option)
         {
@@ -488,7 +492,11 @@ int change_question(quiz **quiz_list, int quiz_count)
                 break;
         }
 
-        while(getchar() != '\n');
+        if (option != 0 && option != 2)
+        {
+            printf("Press any key to return.\n");
+            scanf("%*c");
+        }
 
     } while (option != 0 && option != 2);
 
