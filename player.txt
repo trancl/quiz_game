@@ -1,1 +1,4 @@
 Nguyen Van A,9
+Vo Van B,3
+Goose Goose Duck,8
+Random player 1,10
