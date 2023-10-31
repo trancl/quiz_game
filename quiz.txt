@@ -1,0 +1,90 @@
+What is the capital of Vietnam?
+Hanoi
+Hochiminh
+Cantho
+Danang
+a
+Originally, Amazon only sold what kind of product?
+Beer
+Furniture
+Book
+Computer
+c
+In which country is Versailles located?
+Switzerland
+Germany
+Austria
+France
+d
+Which country has the longest capital's name?
+The Netherlands
+United States
+Thailand
+Vatican City
+c
+How many books are there in the Harry Potter series?
+6 books
+7 books
+8 books
+9 books
+b
+Which is the second largest country in the world by area?
+Canada
+United States
+China
+Australia
+a
+Which programming paradigm is used in C?
+Object-Oriented programming
+Functional programming
+Declarative programming
+Procedural programming
+d
+Which is the capital of Canada?
+Toronto
+Montreal
+Ottawa
+Vancouver
+c
+In language C, what does getchar() return?
+The number of character read
+Nothing
+Boolean true or false in the form of 1 or 0
+The character that was read or EOF
+d
+Which of these languages is not an official language of the UN?
+German
+Arabic
+Spanish
+Russian
+a
+Who is the author of Lords of The Rings?
+G.R.R. Martin
+J.R.R. Tolkien
+J.K. Rowling
+George Orwell
+b
+Which color is not used in any flags?
+Black
+Purple
+Orange
+Pink
+b
+Which of these animals is not endangered?
+Asian Elephant
+Chimpanzee
+Sea Lions
+Kangaroo
+d
+Which is the first general-purpose electrical computer?
+Mark I
+ABC
+ENIAC
+EDVAC
+c
+Who was the director of The Dark Knight trilogy?
+Christian Bale
+Christopher Nolan
+Todd Phillips
+Quentin Tarantino
+b 
