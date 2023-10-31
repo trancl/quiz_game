@@ -138,6 +138,14 @@ void play()
         scanf("%c", &p_choice);
         while(getchar() != '\n');
 
+        while (p_choice < 'a' || p_choice > 'd')
+        {
+            printf("Please enter only a, b, c, or d!\n");
+            printf("Enter your choice again: ");
+            scanf("%c", &p_choice);
+            while(getchar() != '\n');
+        }
+
         if (p_choice == q_list[i].correct_answer)
         {
             p.score++;
