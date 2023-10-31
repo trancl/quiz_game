@@ -451,8 +451,6 @@ int change_question(quiz **quiz_list, int quiz_count)
 
     int option;
 
-
-
     do
     {
         // print the menu
