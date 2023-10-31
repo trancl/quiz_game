@@ -484,9 +484,12 @@ int change_question(quiz **quiz_list, int quiz_count)
                 *quiz_list = tmp;
                 break;
             default:
-                printf("Your choice is not available. Please enter only 1, 2, or 0.");
+                printf("Your choice is not available. Please enter only 1, 2, or 0.\n");
                 break;
         }
+
+        while(getchar() != '\n');
+
     } while (option != 0 && option != 2);
 
     return quiz_count;
