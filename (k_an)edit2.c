@@ -129,10 +129,16 @@ void play()
 
     //Let the player enter the number of questions in their attempt
 do{
-    printf("How many questions do you want to answer? ");
-    k  = scanf("%d",&q_limit);
-}while(k==0 && getchar() != '\n');
-    scanf("%*c");
+    printf("How many questions do you want to answer?(MAX: %d) ",q_count);
+    scanf("%d",&q_limit);
+}while(getchar() != '\n');
+
+    while(q_limit > q_count || q_limit < 1)
+    {
+        printf("That is not something we can offer! Please try again: ");
+        scanf("%d",&q_limit);
+        while(getchar () != '\n');
+    }
 
     // print question and get answer
     for (int i = 0; i < q_limit && i < q_count; i++)
@@ -156,14 +162,12 @@ do{
         }
 
         if (p_choice == q_list[i].correct_answer)
-        {
             right_answer++;
-        }
-        printf("Number of correct answers: %d",right_answer);
-        scanf("%*c");
     }
+        printf("Number of correct answers: %d",right_answer);
+
         p.score = (double)right_answer*100/q_limit;
-        printf("Your score: %.1lf", p.score);
+        printf("\nYour score: %.1lf", p.score);
 
     // open player record and move pointer to end of file
     FILE *player_record = fopen("player.txt", "a");
@@ -343,11 +347,11 @@ int load_player_record(player **player_list)
     }
 
     int i, j, flag;
-    for(i=0; i<player_count-1; i++)
-        for(j=i+1; j<player_count;j++)
+    for(i=0; i<player_count; i++)
+        for(j=player_count-1; j>=i;j--)
         {
             flag = strcmp(tmp[i].name, tmp[j].name);
-            if(flag==0)
+            if(flag==0 && i != j )
             {
                 if(tmp[i].score < tmp[j].score)
                     tmp[i] = tmp[j];
