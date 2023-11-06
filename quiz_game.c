@@ -7,13 +7,12 @@
 #define MAXQULEN 200    // max length of question
 #define MAXANLEN 100    // max length of answer
 #define MAXNMLEN 30     // max length of name
-#define QSTNUM 10       // number of question per player
 
 // define data type for player and quiz
 typedef struct player
 {
     char name[MAXNMLEN];
-    int score;
+    double score;
 } player;
 
 typedef struct quiz
@@ -126,8 +125,29 @@ void play()
     // shuffle and print question
     shuffle_question(q_list, q_count);
 
+    // some variable to use in printing question and getting answer
+    int k = 0;
+    int right_answer = 0;
+    int q_limit;
+
+    // prompt for the number of question
+    do
+    {
+        printf("How many questions do you want to answer? (MAX: %d)", q_count);
+        k = scanf("%d",&q_limit);
+        while (getchar() != '\n');
+    } while (k == 0);
+
+    // if they enter invalid input, force them to try again
+    while(q_limit > q_count || q_limit < 1)
+    {
+        printf("That is not something we can offer! Please try again: ");
+        scanf("%d", &q_limit);
+        while (getchar () != '\n');
+    }
+
     // print question and get answer
-    for (int i = 0; i < QSTNUM && i < q_count; i++)
+    for (int i = 0; i < q_limit && i < q_count; i++)
     {
         system("clear");
         char p_choice;
@@ -149,10 +169,15 @@ void play()
 
         if (p_choice == q_list[i].correct_answer)
         {
-            p.score++;
+            right_answer++;
         }
     }
 
+    printf("Number of correct answer: %d", right_answer);
+
+    p.score = (double) right_answer * 100 / q_limit;
+    printf("\nYour score: %.1lf", p.score);
+    
     // open player record and move pointer to end of file
     FILE *player_record = fopen("player.txt", "a");
 
@@ -406,10 +431,17 @@ quiz get_question()
         while(getchar() != '\n');
     }
 
-    printf("Enter correct answer: ");
-    scanf("%c", &qust.correct_answer);
-    while(getchar() != '\n');
+    do
+    {
+        printf("Enter correct answer: ");
+        scanf("%c", &qust.correct_answer);
+        while(getchar() != '\n');
 
+        if (qust.correct_answer < 'a' || qust.correct_answer > 'd')
+            printf("Please enter only a, b, c, or d!\n");
+            
+    } while (qust.correct_answer < 'a' || qust.correct_answer > 'd');
+    
     return qust;
 }
 
