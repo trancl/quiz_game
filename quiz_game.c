@@ -480,6 +480,7 @@ int change_question(quiz **quiz_list, int quiz_count)
                 break;
             case 1:
                 tmp[choice - 1] = get_question();
+                break;
             case 2:
                 for (int i = choice; i < quiz_count; i++)
                     tmp[i - 1] = tmp[i];
