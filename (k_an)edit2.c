@@ -117,7 +117,6 @@ void play()
 
     // create new player
     player p;
-    p.score = 0;
     right_answer = 0;
 
     printf("Please enter your name: ");
@@ -141,7 +140,7 @@ do{
     }
 
     // print question and get answer
-    for (int i = 0; i < q_limit && i < q_count; i++)
+    for (int i = 0; i < q_limit; i++)
     {
         system("cls");
         char p_choice;
@@ -346,6 +345,7 @@ int load_player_record(player **player_list)
         tmp[player_count - 1] = buffer;
     }
 
+    // check duplication
     int i, j, flag;
     for(i=0; i<player_count; i++)
         for(j=player_count-1; j>=i;j--)
