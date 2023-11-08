@@ -133,7 +133,7 @@ void play()
     // prompt for the number of question
     do
     {
-        printf("How many questions do you want to answer? (MAX: %d)", q_count);
+        printf("How many questions do you want to answer? (MAX: %d) ", q_count);
         k = scanf("%d",&q_limit);
         while (getchar() != '\n');
     } while (k == 0);
@@ -173,17 +173,17 @@ void play()
         }
     }
 
-    printf("Number of correct answer: %d", right_answer);
+    printf("\nNumber of correct answer: %d", right_answer);
 
     p.score = (double) right_answer * 100 / q_limit;
-    printf("\nYour score: %.1lf", p.score);
+    printf("\nYour score: %.2lf", p.score);
     
     // open player record and move pointer to end of file
     FILE *player_record = fopen("player.txt", "a");
 
     // append the player information
     fprintf(player_record, "%s,", p.name);
-    fprintf(player_record, "%d\n", p.score);
+    fprintf(player_record, "%lf\n", p.score);
 
     // close the file
     fclose(player_record);
@@ -214,7 +214,7 @@ void show_player_list()
 
     for (int i = 0; i < p_count; i++)
     {
-        printf("|%-29s|%5d|\n", p_list[i].name, p_list[i].score);
+        printf("|%-29s|%5.2lf|\n", p_list[i].name, p_list[i].score);
 
     }
 
@@ -350,7 +350,7 @@ int load_player_record(player **player_list)
     player buffer;
 
     // read into player_list
-    while(fscanf(ptr, "%[^,], %d\n", buffer.name, &buffer.score) == 2)
+    while(fscanf(ptr, "%[^,], %lf\n", buffer.name, &buffer.score) == 2)
     {
         player_count++;
         tmp = realloc(tmp, player_count * sizeof(player));
