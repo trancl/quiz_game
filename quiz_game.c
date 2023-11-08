@@ -116,7 +116,7 @@ void play()
 
     // create new player
     player p;
-    p.score = 0;
+    p.score;
 
     printf("Please enter your name: ");
     scanf("%[^\n]", p.name);
