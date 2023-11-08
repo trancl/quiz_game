@@ -102,7 +102,8 @@ void print_menu()
 }
 
 void play()
-{
+{   
+    // load question from file, get no. question
     quiz *q_list = NULL;
     int q_count;
 
@@ -173,8 +174,8 @@ void play()
         }
     }
 
+    // print number of correct answer and final score
     printf("\nNumber of correct answer: %d", right_answer);
-
     p.score = (double) right_answer * 100 / q_limit;
     printf("\nYour score: %.2lf", p.score);
     
@@ -196,6 +197,7 @@ void show_player_list()
 {
     system("clear");
 
+    // load player from file, get no.player
     player *p_list = NULL;
     int p_count;
 
@@ -206,6 +208,7 @@ void show_player_list()
             return;
     }
 
+    // sorting from lowest to largest
     sort_player(p_list, p_count);
 
     printf("-------------------------------------\n");
@@ -226,7 +229,7 @@ void show_player_list()
 void update_question_bank()
 {
     system("clear");
-
+    // load question from file, get no. question
     quiz *q_list = NULL;
     int q_count;
 

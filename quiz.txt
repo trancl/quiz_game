@@ -87,4 +87,10 @@ Christian Bale
 Christopher Nolan
 Todd Phillips
 Quentin Tarantino
-b 
+b
+How many cities are there in Singapore?
+1
+2
+3
+4
+a
